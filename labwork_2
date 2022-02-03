@@ -1,0 +1,101 @@
+#include <iostream>
+using namespace std;
+//задание 1
+void task1() 
+{
+	int n;
+	do {
+		cout << "Введите число n: " << endl;
+		cin >> n;
+		if (n < 0) {
+			cout << "n должно быть положительным число";
+		}
+	} while (n < 0);
+	cout << "Числовой треугольник:" << endl;
+	for (int i = 0; i <= n; i++) {
+		for (int j = 0; j <= i; j++) {
+			cout << j << " ";
+		}
+		cout << endl;
+	}
+	cout << endl;
+}
+// задание 2
+void task2() 
+{
+	int n;
+	double bi = 1;
+	do {
+		cout << "Введите число n: " << endl;
+		cin >> n;
+		if (n >= 100) {
+			cout << "n должно быть меньше 100 \n";
+		}
+		else if (n < 0) {
+			cout << "n должно быть положительное число";
+		}
+	} while (n >= 100 || n < 0);
+	cout << "1 ";
+	for (int i = 1; i <= n; i++) {
+		bi = bi * (n - (i - 1)) / i;
+		cout << bi << " ";
+	}
+	cout << endl;
+}
+// задание 3
+void task3() 
+{
+	double sum = 0;
+	int sred = 0;
+	double num = 0;
+	cout << "Символ конца ввода: 100" << endl;
+	cout << "Введите число: " << endl;
+	cin >> num;
+	while (num != 100) 
+	{   sum += num;
+		sred++;
+		cout << "Введите число: " << endl;
+		cin >> num;
+	}
+	if (sred != 0) {
+		cout << "Средние арифметическое введенных точек на прямой: " << sum / sred << endl;
+	}
+	else {
+		cout << "Количество чисел равно нулю" << endl;
+	}
+}
+// задание 4
+int main() 
+{
+	setlocale(LC_ALL, "Russian");
+	int choice = 0;
+	while (true) {
+		cout << "Что вы хотите выполнить? \n"
+			<< "1. задание 1\n"
+			<< "2. задание 2\n"
+			<< "3. задание 3\n"
+			<< "4. выход\n";
+		cin >> choice;
+		switch (choice) {
+		case 1: {
+			task1();
+			break;
+		}
+		case 2: {
+			task2();
+			break;
+		}
+		case 3: {
+			task3();
+			break;
+		}
+		case 4: {
+			return 0;
+			break;
+		}
+		default: {
+			cout << "Некорректный ввод, такой функции нет" << endl;
+		}
+		}
+	}
+}
